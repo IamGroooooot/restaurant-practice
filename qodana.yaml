@@ -3,4 +3,4 @@ profile:
   name: qodana.starter
 include:
   - name: CheckDependencyLicenses
-bootstrap: "dotnet build --configuration Release"
+bootstrap: "dotnet test --configuration Release"
