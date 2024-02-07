@@ -6,6 +6,12 @@ using Microsoft.Extensions.Hosting;
 
 public sealed class Startup
 {
+    public static void ConfigureServices(
+        IServiceCollection services)
+    {
+        services.AddControllers();
+    }
+    
     public static void Configure(
         IApplicationBuilder app,
         IWebHostEnvironment env)
@@ -16,10 +22,7 @@ public sealed class Startup
         app.UseRouting();
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapGet("/", async context =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            endpoints.MapControllers();
         });
     }
 }
