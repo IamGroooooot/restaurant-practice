@@ -9,8 +9,11 @@ public sealed class HomeTests
     {
         var app = new WebApplicationFactory<Startup>();
         var client = app.CreateClient();
+        
         var response = await client.GetAsync("/");
-        var content = await response.Content.ReadAsStringAsync();
-        Assert.That(content, Is.EqualTo("Hello World!"));
+        
+        Assert.That(
+            await response.Content.ReadAsStringAsync(),
+            Is.EqualTo("Hello World!"));
     }
 }
